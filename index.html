@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="et">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CI/CD Deploy Test</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 16px; }
+    code { background: #f6f6f6; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>CI/CD Deploy Test</h1>
+
+  <div class="card">
+    <p>Kui näed seda lehte oma serveri IP aadressilt, siis Nginx/Apache serveerib sinu <code>index.html</code> faili.</p>
+    <p><strong>Deploy timestamp:</strong> <span id="ts">loading…</span></p>
+  </div>
+
+  <script>
+    document.getElementById("ts").textContent = new Date().toLocaleString();
+  </script>
+</body>
+</html>
