@@ -1,0 +1,24 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main  # Või 'master', sõltuvalt sinu haru nimest
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Käivita uuendus serveris (SSH)
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          # Käsud, mis serveris jooksutatakse:
+          script: |
+            cd /var/www/html
+            git pull origin main
+            # Vajadusel restardi veebiserver (nt Nginx):
+            # sudo systemctl reload nginx
